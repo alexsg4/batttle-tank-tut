@@ -1,1 +1,4 @@
-Packaged/
+# Second gitignore for non UE assets and packaged game
+
+/Assets
+/Packaged
