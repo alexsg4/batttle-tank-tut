@@ -59,6 +59,8 @@ bool ATankPlayerController::GetLookVectorHitLocation(FVector LookDirection, FVec
 		HitLocation = HitResult.Location;
 		return true;
 	}
+	
+	HitLocation = FVector(0);	//prevent random values
 	return false; //line trace did not succeed
 }
 
@@ -72,16 +74,14 @@ bool ATankPlayerController::GetSightRayHitLocation(FVector &HitLocation) const
 	FVector2D ScreenLocation = FVector2D(ViewportSizeX*CrosshairXLocation, ViewportSizeY*CrosshairYLocation);
 
 	FVector LookDirection;
-
+	// "De-project" the screen position of the crosshair to a world direction
 	if (GetLookDirection(ScreenLocation, LookDirection))
 	{
-		if (GetLookVectorHitLocation(LookDirection, HitLocation))
-		{
-			return true;
-		}
+		// Line-trace along that LookDirection, and see what we hit (up to LineTraceRange)
+		GetLookVectorHitLocation(LookDirection, HitLocation);
 	}
 
-	return false;
+	return true;
 }
 
 void ATankPlayerController::AimTowardsCrosshair()
@@ -89,7 +89,6 @@ void ATankPlayerController::AimTowardsCrosshair()
 	if (!GetControlledTank()) { return; }
 	
 	FVector HitLocation; //Out parameter
-
 	if (GetSightRayHitLocation(HitLocation)) //side effect: ray trace 
 	{
 		UE_LOG(LogTemp, Warning, TEXT("HitLocation: %s"), *HitLocation.ToString());
