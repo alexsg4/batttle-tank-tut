@@ -10,7 +10,7 @@ void ATankPlayerController::BeginPlay()
 ///Basic logging for player controller
 	UE_LOG(LogTemp, Warning, TEXT("Player Controller Begin Play!"));
 
-	if (GetControlledTank() == nullptr)
+	if (!GetControlledTank())
 	{
 		UE_LOG(LogTemp, Warning, TEXT("There is no posessed tank!"));
 	}
