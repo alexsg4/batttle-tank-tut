@@ -12,7 +12,7 @@ void ATankPlayerController::BeginPlay()
 
 	if (!GetControlledTank())
 	{
-		UE_LOG(LogTemp, Warning, TEXT("There is no posessed tank!"));
+		UE_LOG(LogTemp, Error, TEXT("There is no posessed tank!"));
 	}
 	else
 	{
