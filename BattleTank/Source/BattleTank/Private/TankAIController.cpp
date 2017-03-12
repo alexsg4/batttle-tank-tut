@@ -8,9 +8,7 @@ void ATankAIController::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	///Log AI controlled tanks
-	UE_LOG(LogTemp, Warning, TEXT("AI Controller Begin Play!"));
-
+	//Log AI controlled tanks
 	if (!GetAIControlledTank())
 	{
 		UE_LOG(LogTemp, Error, TEXT("There is no AI posessed tank!"));
@@ -20,7 +18,7 @@ void ATankAIController::BeginPlay()
 		UE_LOG(LogTemp, Warning, TEXT("AI posessed tank is: %s"), *GetAIControlledTank()->GetName());
 	}
 
-	///Log AI got player tank
+	//Log AI got player tank
 	if (!GetPlayerTank())
 	{
 		UE_LOG(LogTemp, Error, TEXT("AIController could not get player tank!"));

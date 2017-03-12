@@ -7,9 +7,7 @@ void ATankPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
 
-///Basic logging for player controller
-	UE_LOG(LogTemp, Warning, TEXT("Player Controller Begin Play!"));
-
+//Basic logging for player controller
 	if (!GetControlledTank())
 	{
 		UE_LOG(LogTemp, Error, TEXT("There is no posessed tank!"));
@@ -18,6 +16,13 @@ void ATankPlayerController::BeginPlay()
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Posessed tank is: %s"), *GetControlledTank()->GetName());
 	}
+}
+
+void ATankPlayerController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	
+	//AimAtCrosshair
 }
 
 ATank* ATankPlayerController::GetControlledTank() const 
