@@ -22,6 +22,7 @@ private:
 		float MinElevation = 0.f;
 
 public:
+	//-1 is max downward movement and +1 is max upward movement
 	void Elevate(float);
 	
 	
