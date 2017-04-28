@@ -21,6 +21,8 @@ public:
 
 	void MoveBarrelTowards(FVector);
 
+	//TODO add set turret reference 
+
 private:
 	UStaticMeshComponent* Barrel = nullptr;
 
