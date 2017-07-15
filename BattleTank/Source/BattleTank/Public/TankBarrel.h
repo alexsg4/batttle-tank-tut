@@ -14,7 +14,7 @@ class BATTLETANK_API UTankBarrel : public UStaticMeshComponent
 	GENERATED_BODY()
 private:
 	UPROPERTY(EditAnywhere, Category = Setup)
-		float MaxDegreesPerSecond = 5.f;
+		float MaxDegreesPerSecond = 10.f;
 	UPROPERTY(EditAnywhere, Category = Setup)
 		float MaxElevation = 40.f;
 	UPROPERTY(EditAnywhere, Category = Setup)

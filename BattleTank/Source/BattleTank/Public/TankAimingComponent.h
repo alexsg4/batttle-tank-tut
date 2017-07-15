@@ -19,7 +19,6 @@ public:
 	// Sets default values for this component's properties
 	UTankAimingComponent();
 
-	//TODO Add Function for setting both components
 	void SetBarrelReference(UTankBarrel*);
 
 	void SetTurretReference(UTankTurret*);

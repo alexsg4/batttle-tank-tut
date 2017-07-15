@@ -30,7 +30,7 @@ private:
 	ATank();
 
 	UPROPERTY(EditAnywhere, Category = Firing)
-	float LaunchSpeed = 100000.f;	//TODO find sensible value
+	float LaunchSpeed = 4000.f;	
 
 protected:
 	// Called when the game starts or when spawned
