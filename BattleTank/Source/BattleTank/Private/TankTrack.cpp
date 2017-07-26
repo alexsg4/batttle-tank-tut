@@ -9,6 +9,11 @@ void UTankTrack::SetThrottle(float Throttle)
 	UE_LOG(LogTemp, Warning, TEXT("%s throttle: %f"), *Name, Throttle);
 
 	//TODO clamp actual throttle value
-	//TODO add keyboard throttle input
-}
 
+	auto ForceApplied = GetForwardVector() * Throttle * TrackMaxDrivingForce;
+	auto ForceLocation = GetComponentLocation();
+
+	auto TankRoot = Cast<UPrimitiveComponent>(GetOwner()->GetRootComponent()); //cast to simpler component in order to add force at location
+
+	TankRoot->AddForceAtLocation(ForceApplied, ForceLocation);
+}
