@@ -14,9 +14,13 @@ void UTankMovementComponent::RequestDirectMove(const FVector & MoveVelocity, boo
 {
 	auto AIForwardIntention = MoveVelocity.GetSafeNormal();
 	auto TankForward = GetOwner()->GetActorForwardVector().GetSafeNormal();
+	
 	auto ForwardThrow = FVector::DotProduct(AIForwardIntention, TankForward);
-
 	IntendMoveForward(ForwardThrow);
+
+	auto RightThrow = FVector::CrossProduct(TankForward, AIForwardIntention).Z;
+	IntendTurnRight(RightThrow);
+
 }
 
 void UTankMovementComponent::IntendMoveForward(float Throw)
@@ -27,7 +31,6 @@ void UTankMovementComponent::IntendMoveForward(float Throw)
 	LeftTrack->SetThrottle(Throw);
 	RightTrack->SetThrottle(Throw);
 
-	//TODO prevent double speed for multi key binding
 }
 
 
@@ -39,5 +42,4 @@ void UTankMovementComponent::IntendTurnRight(float Throw)
 	LeftTrack->SetThrottle(Throw);
 	RightTrack->SetThrottle(-Throw);
 
-	//TODO prevent double speed for multi key binding
 }
