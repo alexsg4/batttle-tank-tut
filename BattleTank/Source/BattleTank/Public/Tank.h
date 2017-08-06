@@ -36,6 +36,7 @@ private:
 
 	UPROPERTY(EditDefaultsOnly, Category = Firing)
 	float LaunchSpeed = 4000.f;	
+	
 
 protected:
 	// Called when the game starts or when spawned
