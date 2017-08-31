@@ -6,7 +6,6 @@
 #include "TankAimingComponent.generated.h"
 
 //enums
-
 UENUM()
 enum class EFiringState : uint8
 {
@@ -14,7 +13,6 @@ enum class EFiringState : uint8
 	Aiming,
 	Locked
 };
-
 
 //forward declaration
 class UTankBarrel;
@@ -30,9 +28,8 @@ public:
 	// Sets default values for this component's properties
 	UTankAimingComponent();
 
-	void SetBarrelReference(UTankBarrel*);
-
-	void SetTurretReference(UTankTurret*);
+	UFUNCTION(BlueprintCallable, Category = "Setup")
+	void InitialiseAim(UTankTurret* TurretToSet, UTankBarrel* BarrelToSet);
 
 	void AimAt(FVector, float);
 
