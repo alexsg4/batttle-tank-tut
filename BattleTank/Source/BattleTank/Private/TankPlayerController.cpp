@@ -1,8 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "BattleTank.h"
-#include "Tank.h"
 #include "TankAimingComponent.h"
+#include "Tank.h"
 #include "TankPlayerController.h"
 
 void ATankPlayerController::BeginPlay()
@@ -12,7 +12,7 @@ void ATankPlayerController::BeginPlay()
 
 	if (AimingComponent)
 	{
-		FoundAimingComponent(AimingComponent);
+		FoundAim(AimingComponent);
 	}
 	else
 	{
@@ -36,8 +36,6 @@ void ATankPlayerController::Tick(float DeltaTime)
 	
 	AimTowardsCrosshair();
 }
-
-void ATankPlayerController::FoundAimingComponent(UTankAimingComponent* AimingCompRef) { /* No implementation needed */ }
 
 ATank* ATankPlayerController::GetControlledTank() const 
 {

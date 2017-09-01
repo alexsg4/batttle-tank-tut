@@ -22,7 +22,7 @@ protected:
 	ATank* GetControlledTank() const;
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
-	void FoundAimingComponent(UTankAimingComponent* AimingCompRef);
+	void FoundAim(UTankAimingComponent* AimingCompRef);
 
 private:
 	void BeginPlay() override;
