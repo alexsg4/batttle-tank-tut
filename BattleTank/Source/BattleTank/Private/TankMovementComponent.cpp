@@ -33,7 +33,6 @@ void UTankMovementComponent::IntendMoveForward(float Throw)
 
 }
 
-
 void UTankMovementComponent::IntendTurnRight(float Throw)
 {
 	if (!ensure(LeftTrack && RightTrack)) { return; }
