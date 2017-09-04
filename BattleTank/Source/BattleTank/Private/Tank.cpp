@@ -2,8 +2,6 @@
 
 #include "BattleTank.h"
 #include "Tank.h"
-#include "TankBarrel.h"
-#include "Projectile.h"
 
 // Sets default values
 ATank::ATank()
@@ -17,21 +15,4 @@ ATank::ATank()
 void ATank::BeginPlay()
 {
 	Super::BeginPlay(); //Needed for BP BeginPlay to run - NOTE
-}
-
-void ATank::Fire()
-{
-	if (!ensure(Barrel)) { return; }
-	bool isReloaded = (FPlatformTime::Seconds() - LastFireTime) > ReloadTimeSeconds;
-	if (isReloaded) 
-	{
-		//spawn projectile at the socket location of the barrel
-		auto Projectile = GetWorld()->SpawnActor<AProjectile>(ProjectileBlueprint,
-			Barrel->GetSocketLocation(FName("Projectile")),
-			Barrel->GetSocketRotation(FName("Projectile"))
-			);
-
-		Projectile->Launch(LaunchSpeed);
-		LastFireTime = FPlatformTime::Seconds();
-	}
 }
