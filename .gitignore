@@ -1,3 +1,4 @@
 # Second gitignore for non UE assets and packaged game
 /Assets
 /Packaged
+BattleTank/Config/DefaultEditorPerProjectUserSettings.ini

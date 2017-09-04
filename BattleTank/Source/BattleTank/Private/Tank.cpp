@@ -3,7 +3,6 @@
 #include "BattleTank.h"
 #include "Tank.h"
 #include "TankAimingComponent.h"
-#include "TankMovementComponent.h"
 #include "TankBarrel.h"
 #include "Projectile.h"
 
@@ -12,7 +11,6 @@ ATank::ATank()
 {
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
-	UE_LOG(LogTemp, Warning, TEXT("LLOG: Tank CTOR CPP"));
 
 }
 
@@ -20,8 +18,8 @@ ATank::ATank()
 void ATank::BeginPlay()
 {
 	Super::BeginPlay(); //Needed for BP BeginPlay to run - NOTE
-	UE_LOG(LogTemp, Warning, TEXT("LLOG: Tank BEGIN PLAY CPP"));
-	
+
+	TankAimingComponent = FindComponentByClass<UTankAimingComponent>();
 }
 
 void ATank::AimAt(FVector HitLocation)
