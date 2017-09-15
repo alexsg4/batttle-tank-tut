@@ -15,7 +15,6 @@ public:
 	AProjectile();
 	
 	void Launch(float Speed);
-	
 
 protected:
 	// Called when the game starts or when spawned
@@ -37,10 +36,5 @@ protected:
 private:
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult &Hit);
-	
-	UFUNCTION()
-	void OnTimerExpire();
 
-	UPROPERTY(EditDefaultsOnly, Category="Setup")
-	float DestroyDelay = 10;
 };
