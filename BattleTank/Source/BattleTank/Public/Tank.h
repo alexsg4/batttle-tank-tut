@@ -11,6 +11,11 @@ class BATTLETANK_API ATank : public APawn
 {
 	GENERATED_BODY()
 
+public:
+	//returns health as a percentage of StartingHealth between 0 and 1
+	UFUNCTION(BlueprintPure, Category="Health")
+	float GetHealthPercent() const;
+
 private:
 	// Sets default values for this pawn's properties
 	ATank();
