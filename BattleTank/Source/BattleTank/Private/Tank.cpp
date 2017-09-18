@@ -15,6 +15,7 @@ ATank::ATank()
 void ATank::BeginPlay()
 {
 	Super::BeginPlay(); //Needed for BP BeginPlay to run - NOTE
+	CurrentHealth = StartingHealth;
 }
 
 float ATank::TakeDamage(
