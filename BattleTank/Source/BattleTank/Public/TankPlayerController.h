@@ -7,6 +7,7 @@
 
 //Forward declaration
 class UTankAimingComponent;
+class ATank;
 
 /**
  * Responsible for helping the player aim. (and more)
@@ -44,6 +45,11 @@ private:
 
 	UPROPERTY(EditDefaultsOnly)
 	float LineTraceRange = 1000000.f;
+
+	UFUNCTION()
+	void OnPosessedTankDeath();
+
+	virtual void SetPawn(APawn* InPawn) override;
 	
 
 };

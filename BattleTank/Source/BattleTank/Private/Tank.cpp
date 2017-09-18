@@ -31,7 +31,7 @@ float ATank::TakeDamage(
 
 	if (CurrentHealth <= 0)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("%s died."), *(this->GetName()));
+		OnDeath.Broadcast();
 	}
 	return DamageToApply;
 
@@ -40,4 +40,6 @@ float ATank::TakeDamage(
 float ATank::GetHealthPercent() const
 {
 	return (float)CurrentHealth / (float)StartingHealth;
+
 }
+
