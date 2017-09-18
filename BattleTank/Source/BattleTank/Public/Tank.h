@@ -27,7 +27,7 @@ private:
 	int32 StartingHealth = 100;
 
 	UPROPERTY(VisibleAnywhere, Category = "Health")
-	int32 CurrentHealth = StartingHealth;
+	int32 CurrentHealth; //init. in BeginPlay
 	
 protected:
 	// Called when the game starts or when spawned
